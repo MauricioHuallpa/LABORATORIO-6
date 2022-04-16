@@ -1,0 +1,36 @@
+// LAB#6  Huallpa Quino Mauricio Rodrigo //
+// 4. Emplear recursividad para calcular la suma de entradas de un arreglo//
+#include <iostream>
+ 
+using namespace std;
+ 
+float sumaNumeros(float numero, int n, int contador);   //Prototipo funcion recursiva//
+ 
+int main()
+{
+	system("color 4F");
+    int n;       //cantidad de numeros//
+    
+    cout<<"\n\t ////////////////////////////////////////////////////////";
+	cout<<"\n\t // LAB6:                                      ETN307L //";
+	cout<<"\n\t // Univ. Huallpa Quino Mauricio Rodrigo               //";
+	cout<<"\n\t //////////////////////////////////////////////////////// \n";
+	cout<<"\n 4. Emplear recursividad para calcular la suma de entradas de un arreglo" ;
+ 
+    cout << "\n n(cantidad de numeros en el arreglo): "; cin >> n;  
+    cout << "\nTotal: \n" << sumaNumeros(0, n, 0)<<endl<<endl;//llamamos a la funcion que sumara//
+}
+ 
+float sumaNumeros(float numero, int n, int contador) //funcion recursiva para sumar terminas//
+{
+    float dato;   //variables auxiliar//
+ 
+    if (contador < n)  
+    {
+       cout << "Numero: "; cin >> dato; //llenamos el arreglo
+       numero += dato;    //se suman cada uno de los terminos
+       return sumaNumeros(numero, n, ++contador); //retornamos el resultado de la suma
+    }
+ 
+    return numero; 
+}
