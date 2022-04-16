@@ -1,0 +1,44 @@
+// LAB#6  Huallpa Quino Mauricio Rodrigo //
+// 1. Calcular e^x como sucesion y aplicacion recursiva//
+#include<iostream>
+#include<math.h>
+#include<stdio.h>
+#include<stdlib.h>
+
+using namespace std;
+
+int potenciadeE(double,int); //funcion recursiva//
+
+double resultado; //resultado e^x global//
+
+int main(){
+	
+	system("color 4F");
+	int expo;               //exponente valor n entero positivo//
+	double b;               // base que tendria el valor de e//
+	
+	b=exp(1);	            // base tiene el valor de e^1//
+	cout<<"\n\t ////////////////////////////////////////////////////////";
+	cout<<"\n\t // LAB6:                                      ETN307L //";
+	cout<<"\n\t // Univ. Huallpa Quino Mauricio Rodrigo               //";
+	cout<<"\n\t //////////////////////////////////////////////////////// \n";
+	cout<<"\n\t 1. Calcular e^x como sucesion y aplicacion recursiva" ;
+	cout<<"\n\t ingrese el exponente : ";
+	cin>>expo;             //leemos el exponente//
+	
+	potenciadeE(b,expo);   //llamamos a la funcion y enviamos datos//
+	cout<<"\n\t el valor de e^"<<expo<<" es igual a : ";
+	printf("\t%.10lf\n",resultado);           //expresion de resultado con 10 decimales//
+	
+	return 0;
+}
+ int potenciadeE(double b,int expo){          //funcion recursiva//
+	
+	if(expo==1){                         //si exponente es igual a 1 la base se matiene//
+		resultado=b;                     //si exponente es igual a 1 , el exponencial no cambia su valor//
+	}
+	else{
+		resultado *= (b*potenciadeE(b,expo-1))/(potenciadeE(b,expo-1)) ;       //operacion recursiva para e^x//
+	}
+	return resultado;                    //retornamos el resultado//
+}
