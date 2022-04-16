@@ -1,0 +1,42 @@
+// LAB#6  Huallpa Quino Mauricio Rodrigo //
+//7.Realizar el algoritmo de las torres de Hanoi en forma recursiva//
+//                  |            |            |                   //
+//                  |            |            |                   //
+//                 (|)           |            |                   //
+//                (_|_)          |            |                   //
+//               (__|__)         |            |                   //
+//                  A            B            C                   //
+#include <iostream>
+using namespace std;
+ 
+void funcionhanoi(int num,char A,char C,char B) //funcion Recursiva//
+{
+    if(num==1)
+    {
+            cout<<"\t Mueva el bloque "<<num<<" desde "<<A<<" hasta  "<<C<<endl;          
+    }
+    else    
+    {    //Operaciones para determinar la forma correcta de resolver las torres de HAnoi//
+        funcionhanoi(num-1,A,B,C);
+        cout<<"\t Mueva el bloque "<<num<<" desde "<<A<<" hasta  "<<C<<endl;//muestra los pasos a seguir //
+        funcionhanoi(num-1,B,C,A);
+    }
+} 
+
+int main()
+{
+	system("color 4F");
+    int n;  //numero de discos a emplear//
+    char A,B,C;  //declaramos las 3 torres//
+        
+    cout<<"\n\t ////////////////////////////////////////////////////////";
+	cout<<"\n\t // LAB6:                                      ETN307L //";
+	cout<<"\n\t // Univ. Huallpa Quino Mauricio Rodrigo               //";
+	cout<<"\n\t //////////////////////////////////////////////////////// \n";
+	cout<<"\n\t 7.Realizar el algoritmo de las torres de Hanoi en forma recursiva\n" ;
+ 
+    cout<<"\n\t Las TORRES DE HANOI son A B C\n";
+    cout<<"\t Numero de discos: "; cin>>n;
+    funcionhanoi(n,'A','C','B'); //llamamos a la funcion recursiva y enviamos datos// 
+    return 0;       
+}
